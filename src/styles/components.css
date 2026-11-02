@@ -914,26 +914,6 @@
   border-color: color-mix(in srgb, var(--skill-accent, #8b5cf6) 55%, transparent);
   box-shadow: 0 0 24px color-mix(in srgb, var(--skill-accent, #8b5cf6) 22%, transparent);
 }
-.learning-section { margin-top: 2rem; }
-.learning-title {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.85rem;
-  color: var(--ink);
-  font-size: 1rem;
-}
-.learning-title svg { color: var(--cyan); }
-.learning-list { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-.learning-item {
-  padding: 0.5rem 0.85rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink-dim);
-  font-size: 0.85rem;
-}
-
 .project-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;

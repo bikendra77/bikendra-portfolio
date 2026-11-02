@@ -1,8 +1,7 @@
 import {
   Code2, Palette, Braces, Atom, LayoutGrid,
-  Server, Database, Workflow, Leaf, GitBranch, Sparkles,
+  Server, Database, Workflow, Leaf, GitBranch,
 } from 'lucide-react'
-import { LEARNING_ITEMS } from '../data/learning.js'
 
 const SKILLS = [
   { icon: Code2, name: 'HTML5', group: 'Markup' },
@@ -62,12 +61,6 @@ export default function Skills() {
               </span>
             </div>
           ))}
-        </div>
-        <div className="learning-section">
-          <h3 className="learning-title"><Sparkles size={18} aria-hidden="true" /> Currently learning</h3>
-          <ul className="learning-list">
-            {LEARNING_ITEMS.map((item) => <li className="learning-item" key={item}>{item}</li>)}
-          </ul>
         </div>
       </div>
     </section>

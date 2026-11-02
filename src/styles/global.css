@@ -102,8 +102,6 @@ body::before {
     radial-gradient(560px 460px at 88% 40%, rgba(217, 70, 239, 0.1), transparent 72%),
     radial-gradient(620px 480px at 48% 95%, rgba(139, 92, 246, 0.13), transparent 72%);
   filter: blur(26px);
-  transform: translate3d(0, var(--glow-parallax-y, 0px), 0);
-  will-change: transform;
 }
 body::after {
   content: '';

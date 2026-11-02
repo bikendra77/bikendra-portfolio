@@ -50,33 +50,6 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const root = document.documentElement
-    const desktop = window.matchMedia('(min-width: 768px)')
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    let frame = 0
-
-    const updateParallax = () => {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(() => {
-        const offset = desktop.matches && !reducedMotion.matches
-          ? Math.min(window.scrollY * 0.12, 150)
-          : 0
-        root.style.setProperty('--glow-parallax-y', `${offset}px`)
-      })
-    }
-
-    updateParallax()
-    window.addEventListener('scroll', updateParallax, { passive: true })
-    window.addEventListener('resize', updateParallax)
-    return () => {
-      cancelAnimationFrame(frame)
-      window.removeEventListener('scroll', updateParallax)
-      window.removeEventListener('resize', updateParallax)
-      root.style.removeProperty('--glow-parallax-y')
-    }
-  }, [])
-
-  useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const targets = document.querySelectorAll('[data-reveal]')
     if (prefersReduced || !('IntersectionObserver' in window)) {

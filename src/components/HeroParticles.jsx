@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-const PARTICLE_COUNT = 36
+const PARTICLE_COUNT = 20
+const FRAME_INTERVAL = 1000 / 30
 
 export default function HeroParticles() {
   const canvasRef = useRef(null)
@@ -20,7 +21,9 @@ export default function HeroParticles() {
     let width = 0
     let height = 0
     let frame = 0
+    let scrollTimer = 0
     let inView = false
+    let lastFrameTime = 0
     const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: Math.random(),
       y: Math.random(),
@@ -42,11 +45,18 @@ export default function HeroParticles() {
     const stop = () => {
       cancelAnimationFrame(frame)
       frame = 0
+      window.clearTimeout(scrollTimer)
+      scrollTimer = 0
     }
 
-    const draw = () => {
+    const draw = (timestamp) => {
       frame = 0
       if (!inView || document.hidden) return
+      if (timestamp - lastFrameTime < FRAME_INTERVAL) {
+        frame = requestAnimationFrame(draw)
+        return
+      }
+      lastFrameTime = timestamp
 
       context.clearRect(0, 0, width, height)
       particles.forEach((particle) => {
@@ -62,7 +72,15 @@ export default function HeroParticles() {
     }
 
     const start = () => {
-      if (!frame && inView && !document.hidden) frame = requestAnimationFrame(draw)
+      if (!frame && inView && !document.hidden) {
+        lastFrameTime = 0
+        frame = requestAnimationFrame(draw)
+      }
+    }
+    const handleScroll = () => {
+      if (!inView) return
+      stop()
+      if (!document.hidden) scrollTimer = window.setTimeout(start, 180)
     }
     const handleVisibilityChange = () => {
       if (document.hidden) stop()
@@ -75,6 +93,7 @@ export default function HeroParticles() {
     })
     observer.observe(hero)
     document.addEventListener('visibilitychange', handleVisibilityChange)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', resize)
     resize()
 
@@ -82,6 +101,7 @@ export default function HeroParticles() {
       stop()
       observer.disconnect()
       document.removeEventListener('visibilitychange', handleVisibilityChange)
+      window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', resize)
     }
   }, [])
