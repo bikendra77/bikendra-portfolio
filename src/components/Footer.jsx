@@ -5,6 +5,8 @@ const FOOTER_LINKS = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
+  { href: '#github', label: 'GitHub' },
+  { href: '#approach', label: 'Approach' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -28,7 +30,7 @@ export default function Footer() {
           ))}
           <a href="https://github.com/bikendra77" target="_blank" rel="noopener noreferrer" className="footer-link">
             <Github size={16} />
-            GitHub
+            GitHub profile
           </a>
           <a href="#home" className="footer-link">
             <ArrowUp size={16} />

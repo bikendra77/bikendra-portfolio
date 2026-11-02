@@ -1,22 +1,28 @@
-import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Download, Github, Linkedin, MapPin } from 'lucide-react'
 import heroPhoto from '../../images/hero-photo.jpg'
+import HeroParticles from './HeroParticles.jsx'
 
 export default function Hero() {
   return (
     <section id="home" className="hero">
+      <div className="hero-particle-layer" aria-hidden="true"><HeroParticles /></div>
       <div className="container hero-grid">
         <div className="hero-copy">
           <span className="pill">
             <span className="pill-dot" aria-hidden="true" />
             Open to opportunities
           </span>
+          <span className="pill availability-pill">
+            <span className="availability-dot" aria-hidden="true" />
+            Available for internship
+          </span>
 
-          <h1 className="hero-headline">
+          <h1 className="hero-headline reveal-title" data-reveal>
             Building digital <span className="gradient-text">experiences</span> with purpose.
           </h1>
 
           <p className="lede hero-lede">
-            I'm Bikendra Giri, a BCA graduate and web developer from Nepal. I enjoy turning
+            I'm Bikendra Giri, a BCA graduate and <span className="hero-role-shimmer">web developer</span> from Nepal. I enjoy turning
             ideas into responsive, useful, and engaging web experiences while continuously
             improving my skills.
           </p>
@@ -25,6 +31,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
+            <a href="/Bikendra_Giri_CV.pdf" className="btn btn-primary">
+              <Download size={16} />
+              Download CV
+            </a>
             <a href="#projects" className="btn btn-primary">
               Explore My Work
               <ArrowDown size={16} />
@@ -63,6 +73,11 @@ export default function Hero() {
               className="hero-photo"
               src={heroPhoto}
               alt="Bikendra Giri"
+              width="960"
+              height="1280"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               onError={(event) => { event.currentTarget.hidden = true }}
             />
             <span className="tech-float tech-float-react" aria-hidden="true">React</span>

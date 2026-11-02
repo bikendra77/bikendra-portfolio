@@ -1,10 +1,24 @@
 import { Compass, MapPin, Target } from 'lucide-react'
-import aboutPhoto from '../../images/about-photo.jpeg'
+import aboutPhoto from '../../images/optimized/about-photo.jpg'
 
 const INFO = [
   { icon: MapPin, label: 'Base', value: 'Bharatpur, Chitwan, Nepal' },
   { icon: Compass, label: 'Focus', value: 'Web development & user-focused interfaces' },
   { icon: Target, label: 'Looking for', value: 'Remote opportunities & freelance projects' },
+]
+
+const EXPERIENCE = [
+  {
+    title: 'Web Development Intern',
+    organization: 'Akshyaraanga Sanjaal Pvt. Ltd',
+    period: 'Sep 2025 - present',
+    details: 'Building the Online Student Management System with React, PHP, Node.js and MongoDB.',
+  },
+  {
+    title: 'BCA',
+    organization: 'Birendra Multiple Campus',
+    period: '2021-2026',
+  },
 ]
 
 export default function About() {
@@ -13,7 +27,7 @@ export default function About() {
       <div className="container">
         <div className="section-head about-section-head">
           <span className="eyebrow">About</span>
-          <h2 className="h2">Curious mind. Practical builder. Always learning.</h2>
+          <h2 className="h2 reveal-title" data-reveal>Curious mind. Practical builder. Always learning.</h2>
         </div>
 
         <div className="about-grid">
@@ -25,6 +39,10 @@ export default function About() {
                 className="about-photo"
                 src={aboutPhoto}
                 alt="Bikendra Giri"
+                width="1000"
+                height="987"
+                loading="lazy"
+                decoding="async"
                 onError={(event) => { event.currentTarget.hidden = true }}
               />
             </div>
@@ -47,9 +65,33 @@ export default function About() {
           </div>
         </div>
 
+        <div className="experience-timeline" aria-label="Experience and education">
+          {EXPERIENCE.map((item, index) => (
+            <article
+              className="experience-item"
+              key={item.title}
+              data-reveal
+              style={{ '--reveal-delay': `${index * 90}ms` }}
+            >
+              <span className="experience-dot" aria-hidden="true" />
+              <div className="experience-card">
+                <span className="eyebrow">{item.period}</span>
+                <h3 className="h3">{item.title}</h3>
+                <p>{item.organization}</p>
+                {item.details && <p>{item.details}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+
         <div className="about-info">
-          {INFO.map(({ icon: Icon, label, value }) => (
-            <div className="info-block" key={label}>
+          {INFO.map(({ icon: Icon, label, value }, i) => (
+            <div
+              className="info-block"
+              key={label}
+              data-reveal
+              style={{ '--reveal-delay': `${i * 80}ms` }}
+            >
               <Icon size={18} className="info-icon" />
               <div>
                 <span className="info-label mono">{label}</span>

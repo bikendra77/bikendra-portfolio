@@ -1,7 +1,8 @@
 import {
   Code2, Palette, Braces, Atom, LayoutGrid,
-  Server, Database, Workflow, Leaf, GitBranch,
+  Server, Database, Workflow, Leaf, GitBranch, Sparkles,
 } from 'lucide-react'
+import { LEARNING_ITEMS } from '../data/learning.js'
 
 const SKILLS = [
   { icon: Code2, name: 'HTML5', group: 'Markup' },
@@ -35,7 +36,7 @@ export default function Skills() {
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">Skills</span>
-          <h2 className="h2">Tools I build with.</h2>
+          <h2 className="h2 reveal-title" data-reveal>Tools I build with.</h2>
           <p className="lede">
             A working toolkit I use across front-end and back-end projects, growing with
             every build.
@@ -49,7 +50,7 @@ export default function Skills() {
               key={name}
               data-reveal
               style={{
-                transitionDelay: `${Math.min(i, 8) * 45}ms`,
+                '--reveal-delay': `${Math.min(i, 8) * 75}ms`,
                 '--skill-accent': SKILL_COLORS[name],
               }}
             >
@@ -61,6 +62,12 @@ export default function Skills() {
               </span>
             </div>
           ))}
+        </div>
+        <div className="learning-section">
+          <h3 className="learning-title"><Sparkles size={18} aria-hidden="true" /> Currently learning</h3>
+          <ul className="learning-list">
+            {LEARNING_ITEMS.map((item) => <li className="learning-item" key={item}>{item}</li>)}
+          </ul>
         </div>
       </div>
     </section>

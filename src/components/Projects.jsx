@@ -1,23 +1,64 @@
 import { ArrowUpRight, Github, ExternalLink, Hourglass } from 'lucide-react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { projects, allRepositoriesUrl } from '../data/projects.js'
 
+const FILTERS = ['All', 'React', 'PHP', 'Full-stack', 'Front-end']
+const FRONTEND_TAGS = new Set(['HTML', 'CSS', 'SCSS', 'JavaScript', 'React'])
+const BACKEND_TAGS = new Set(['PHP', 'Node.js', 'Express', 'MySQL', 'MongoDB'])
+
+function matchesFilter(project, filter) {
+  if (filter === 'All') return true
+  const tags = new Set(project.tags.map((tag) => tag.toLowerCase()))
+  if (filter === 'React' || filter === 'PHP') return tags.has(filter.toLowerCase())
+  if (filter === 'Front-end') return project.tags.some((tag) => FRONTEND_TAGS.has(tag))
+  if (filter === 'Full-stack') {
+    return project.tags.some((tag) => FRONTEND_TAGS.has(tag)) &&
+      project.tags.some((tag) => BACKEND_TAGS.has(tag))
+  }
+  return false
+}
+
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState('All')
+  const visibleProjects = useMemo(
+    () => projects.filter((project) => matchesFilter(project, activeFilter)),
+    [activeFilter]
+  )
+
   return (
     <section id="projects">
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">Projects</span>
-          <h2 className="h2">Selected work. Real projects. Constant progress.</h2>
+          <h2 className="h2 reveal-title" data-reveal>Selected work. Real projects. Constant progress.</h2>
           <p className="lede">
             A running record of what I've built while learning — academic projects and
             self-directed builds, each one sharpening a different part of the stack.
           </p>
         </div>
 
+        <div className="project-filters" role="group" aria-label="Filter projects">
+          {FILTERS.map((filter) => (
+            <button
+              className={`project-filter${activeFilter === filter ? ' is-active' : ''}`}
+              type="button"
+              key={filter}
+              aria-pressed={activeFilter === filter}
+              onClick={() => setActiveFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
         <div className="project-grid">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+          {visibleProjects.map((project, i) => (
+            <ProjectCard
+              key={`${project.id}-${activeFilter}`}
+              project={project}
+              index={i}
+              filtered={activeFilter !== 'All'}
+            />
           ))}
         </div>
 
@@ -37,7 +78,7 @@ export default function Projects() {
   )
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, filtered }) {
   const {
     number,
     name,
@@ -56,11 +97,31 @@ function ProjectCard({ project, index }) {
   const [imageFailed, setImageFailed] = useState(false)
   const coverImage = image || preview
 
+  const handleTilt = (event) => {
+    if (
+      window.innerWidth < 768 ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    ) return
+
+    const card = event.currentTarget
+    const bounds = card.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5
+    card.style.transform = `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg) translateY(-2px)`
+  }
+
+  const resetTilt = (event) => {
+    event.currentTarget.style.transform = ''
+  }
+
   return (
     <article
-      className={`project-card ${placeholder ? 'is-placeholder' : ''}`}
+      className={`project-card${placeholder ? ' is-placeholder' : ''}${filtered ? ' filter-enter' : ''}`}
       data-reveal
-      style={{ transitionDelay: `${Math.min(index, 4) * 70}ms` }}
+      style={{ '--reveal-delay': `${Math.min(index, 4) * (filtered ? 70 : 80)}ms` }}
+      onMouseMove={handleTilt}
+      onMouseLeave={resetTilt}
     >
       <div className="project-card-preview">
         {coverImage && !imageFailed ? (
@@ -68,7 +129,10 @@ function ProjectCard({ project, index }) {
             className="project-card-preview-image"
             src={coverImage}
             alt={`Cover image for ${name}`}
+            width="1200"
+            height="750"
             loading="lazy"
+            decoding="async"
             onError={() => setImageFailed(true)}
           />
         ) : (
@@ -80,7 +144,9 @@ function ProjectCard({ project, index }) {
       <div className="project-card-body">
         <div className="project-card-top">
           <span className="eyebrow mono">{category}</span>
-          <h3 className="h3">{name}</h3>
+          <h3 className="h3">
+            <a className="project-title-link" href={`/project/${project.id}`}>{name}</a>
+          </h3>
         </div>
 
         <p className="project-desc">{description}</p>

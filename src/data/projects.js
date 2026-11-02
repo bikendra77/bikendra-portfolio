@@ -1,7 +1,7 @@
 // Central project data.
 // Edit project details here. Every card reads from this file.
 
-import movieBookingPreview from '../../images/Screenshot 2026-10-15 150047.png'
+import movieBookingPreview from '../../images/optimized/movie-ticket-preview.jpg'
 import weatherForecastPreview from '../../images/weather-forecast.jpg'
 
 export const projects = [
