@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="50" x2="1120" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#281632"/>
+      <stop offset="1" stop-color="#0B0B14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="220" x2="940" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F97316"/>
+      <stop offset=".5" stop-color="#D946EF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="plate" cx="0" cy="0" r="1" gradientTransform="matrix(0 185 -230 0 800 392)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#39223D"/>
+      <stop offset="1" stop-color="#17131F"/>
+    </radialGradient>
+    <filter id="glow" x="500" y="120" width="590" height="570" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="750" rx="28" fill="url(#bg)"/>
+  <circle cx="800" cy="400" r="190" fill="#D946EF" fill-opacity=".16" filter="url(#glow)"/>
+  <rect x="115" y="118" width="970" height="514" rx="26" fill="#11101A" stroke="#8C719D" stroke-opacity=".45" stroke-width="2"/>
+  <path d="M141 118h918a26 26 0 0 1 26 26v43H115v-43a26 26 0 0 1 26-26Z" fill="#21172A"/>
+  <circle cx="158" cy="153" r="7" fill="#F97316"/>
+  <circle cx="184" cy="153" r="7" fill="#D946EF"/>
+  <circle cx="210" cy="153" r="7" fill="#8B5CF6"/>
+  <text x="164" y="242" fill="#F6F0FA" font-family="Arial, sans-serif" font-size="34" font-weight="700">Menu</text>
+  <text x="164" y="275" fill="#ACA0B6" font-family="Arial, sans-serif" font-size="17">Fresh picks, ready to order</text>
+  <rect x="164" y="310" width="414" height="72" rx="16" fill="#1C1724" stroke="#51405B"/>
+  <circle cx="204" cy="346" r="18" fill="#F97316" fill-opacity=".8"/>
+  <rect x="240" y="331" width="190" height="12" rx="6" fill="#E8DFEF"/>
+  <rect x="240" y="353" width="272" height="9" rx="4.5" fill="#81778B"/>
+  <rect x="164" y="398" width="414" height="72" rx="16" fill="#1C1724" stroke="#51405B"/>
+  <circle cx="204" cy="434" r="18" fill="#D946EF" fill-opacity=".72"/>
+  <rect x="240" y="419" width="165" height="12" rx="6" fill="#E8DFEF"/>
+  <rect x="240" y="441" width="242" height="9" rx="4.5" fill="#81778B"/>
+  <rect x="164" y="486" width="414" height="72" rx="16" fill="#1C1724" stroke="#51405B"/>
+  <circle cx="204" cy="522" r="18" fill="#8B5CF6" fill-opacity=".8"/>
+  <rect x="240" y="507" width="212" height="12" rx="6" fill="#E8DFEF"/>
+  <rect x="240" y="529" width="184" height="9" rx="4.5" fill="#81778B"/>
+  <circle cx="816" cy="400" r="176" fill="url(#plate)" stroke="#A884AC" stroke-opacity=".5" stroke-width="3"/>
+  <circle cx="816" cy="400" r="137" stroke="#D7C8DA" stroke-opacity=".2" stroke-width="2"/>
+  <path d="M727 414c15-68 70-111 135-93 56 15 83 63 81 108-2 48-38 87-91 91-65 5-120-34-125-106Z" fill="url(#accent)" fill-opacity=".7"/>
+  <path d="M763 382c28 17 70 17 101-3m-91 60c37-16 82-13 119 9m-106 28c21-7 47-8 71-2" stroke="#F8DFF5" stroke-opacity=".63" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="751" cy="357" r="9" fill="#F97316"/>
+  <circle cx="882" cy="350" r="7" fill="#A78BFA"/>
+  <circle cx="908" cy="445" r="10" fill="#F97316"/>
+  <rect x="700" y="585" width="232" height="12" rx="6" fill="#C4B5FD" fill-opacity=".4"/>
+</svg>

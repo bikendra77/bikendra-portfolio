@@ -12,6 +12,7 @@ export const projects = [
     description:
       "A PHP and MySQL web application built around student-record administration — part of my coursework in web-based data management systems. I wasn't able to confirm the current contents of the linked repository, so treat the feature list as a work in progress rather than a finished spec.",
     tags: ['PHP', 'MySQL', 'HTML', 'CSS'],
+    image: `${import.meta.env.BASE_URL}images/projects/student-management.svg`,
     repo: 'https://github.com/bikendra77/student-management-system',
     repoReachable: false,
     demo: null,
@@ -39,6 +40,7 @@ export const projects = [
     description:
       'A PHP-based food ordering platform with customer-facing menus, an admin panel, order checkout, and Khalti payment integration for the Nepali market — built on top of a MySQL database.',
     tags: ['PHP', 'MySQL', 'SCSS', 'JavaScript'],
+    image: `${import.meta.env.BASE_URL}images/projects/food-delivery.svg`,
     repo: 'https://github.com/bikendra77/onlinefoodphp',
     repoReachable: true,
     demo: null,
@@ -52,6 +54,7 @@ export const projects = [
     description:
       'A Spotify-inspired music player interface built with plain HTML, CSS, and JavaScript — playable songs organized into playlists and albums, recreating the core listening experience in the browser.',
     tags: ['HTML', 'CSS', 'JavaScript'],
+    image: `${import.meta.env.BASE_URL}images/projects/music-player.svg`,
     repo: 'https://github.com/bikendra77/Spotify-website',
     repoReachable: true,
     demo: null,

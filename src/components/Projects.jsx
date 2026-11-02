@@ -1,4 +1,5 @@
 import { ArrowUpRight, Github, ExternalLink, Hourglass } from 'lucide-react'
+import { useState } from 'react'
 import { projects, allRepositoriesUrl } from '../data/projects.js'
 
 export default function Projects() {
@@ -40,6 +41,7 @@ function ProjectCard({ project, index }) {
   const {
     number,
     name,
+    image,
     category,
     description,
     tags,
@@ -51,6 +53,8 @@ function ProjectCard({ project, index }) {
     preview,
     repoLabel,
   } = project
+  const [imageFailed, setImageFailed] = useState(false)
+  const coverImage = image || preview
 
   return (
     <article
@@ -59,8 +63,14 @@ function ProjectCard({ project, index }) {
       style={{ transitionDelay: `${Math.min(index, 4) * 70}ms` }}
     >
       <div className="project-card-preview">
-        {preview ? (
-          <img className="project-card-preview-image" src={preview} alt={`${name} screenshot`} />
+        {coverImage && !imageFailed ? (
+          <img
+            className="project-card-preview-image"
+            src={coverImage}
+            alt={`Cover image for ${name}`}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+          />
         ) : (
           <PreviewGlyph seed={number} />
         )}

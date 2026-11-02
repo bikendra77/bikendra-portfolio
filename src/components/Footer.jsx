@@ -1,5 +1,13 @@
 import { ArrowUp, Github } from 'lucide-react'
 
+const FOOTER_LINKS = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+]
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -14,7 +22,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-links">
+        <nav className="footer-nav" aria-label="Footer">
+          {FOOTER_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="footer-link">{link.label}</a>
+          ))}
           <a href="https://github.com/bikendra77" target="_blank" rel="noopener noreferrer" className="footer-link">
             <Github size={16} />
             GitHub
@@ -23,7 +34,7 @@ export default function Footer() {
             <ArrowUp size={16} />
             Back to top
           </a>
-        </div>
+        </nav>
 
         <p className="footer-copyright mono">© {year} Bikendra Giri</p>
       </div>

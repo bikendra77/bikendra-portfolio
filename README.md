@@ -1,7 +1,7 @@
 # Bikendra Giri — Developer Portfolio
 
-A single-page developer portfolio built with React + Vite. Dark, futuristic visual
-identity (near-black background, cyan/violet accents, orbital hero illustration),
+A single-page developer portfolio built with React + Vite. Dark gradient visual
+identity (near-black background, purple/pink/orange accents, circular photo slots),
 fully responsive, and built to be deployed as a static site.
 
 ## Stack
@@ -100,8 +100,7 @@ Either platform will give you a live URL and automatic redeploys on every push t
 - This is a single page with anchor-based navigation (`#projects`, `#about`, etc.), so
   no client-side router or custom 404 page is included — there's nothing for a router
   to 404 on.
-- Respects `prefers-reduced-motion`: orbital animation, floating cards, and scroll
-  reveals are disabled for users who have that setting on.
+- Respects `prefers-reduced-motion` for decorative animations and scroll reveals.
 - The contact "form" is a `mailto:` link plus a copy-to-clipboard button — no backend.
   If you want an actual in-page form later, you'd need a service like Formspree, Netlify
   Forms, or a small serverless function to receive submissions.

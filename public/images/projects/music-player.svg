@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="40" x2="1160" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#21163C"/>
+      <stop offset="1" stop-color="#0A0A13"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="322" y1="180" x2="890" y2="625" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset=".53" stop-color="#D946EF"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="glow" x="520" y="130" width="570" height="570" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="38"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="750" rx="28" fill="url(#bg)"/>
+  <circle cx="810" cy="390" r="185" fill="#8B5CF6" fill-opacity=".2" filter="url(#glow)"/>
+  <rect x="135" y="112" width="930" height="526" rx="28" fill="#11101A" stroke="#8E7BAD" stroke-opacity=".45" stroke-width="2"/>
+  <rect x="135" y="112" width="250" height="526" rx="28" fill="#191525"/>
+  <path d="M357 112h680a28 28 0 0 1 28 28v470a28 28 0 0 1-28 28H357V112Z" fill="#11101A"/>
+  <circle cx="176" cy="153" r="7" fill="#F97316"/>
+  <circle cx="202" cy="153" r="7" fill="#D946EF"/>
+  <circle cx="228" cy="153" r="7" fill="#8B5CF6"/>
+  <text x="177" y="221" fill="#F3EDFA" font-family="Arial, sans-serif" font-size="27" font-weight="600">Player</text>
+  <rect x="176" y="252" width="170" height="10" rx="5" fill="#C4B5FD"/>
+  <rect x="176" y="289" width="142" height="9" rx="4.5" fill="#7D748B"/>
+  <rect x="176" y="320" width="160" height="9" rx="4.5" fill="#7D748B"/>
+  <rect x="176" y="351" width="120" height="9" rx="4.5" fill="#7D748B"/>
+  <text x="423" y="184" fill="#F3EDFA" font-family="Arial, sans-serif" font-size="24" font-weight="600">Now playing</text>
+  <rect x="423" y="216" width="620" height="276" rx="22" fill="#1B1628" stroke="#51436F"/>
+  <circle cx="732" cy="354" r="110" fill="#221A31" stroke="url(#accent)" stroke-width="4"/>
+  <circle cx="732" cy="354" r="78" fill="url(#accent)" fill-opacity=".76"/>
+  <circle cx="732" cy="354" r="21" fill="#16121F"/>
+  <path d="M481 452c32-34 51-38 77-11 20 20 36 21 55 0m-132 29c24-22 41-24 64-5 18 15 30 16 48 0m378 2c26-27 46-24 66 0 17 20 34 21 56-3" stroke="#D8C6F3" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
+  <text x="423" y="536" fill="#F0EAF5" font-family="Arial, sans-serif" font-size="19" font-weight="600">Evening mix</text>
+  <text x="423" y="562" fill="#9A90A8" font-family="Arial, sans-serif" font-size="15">Playlist</text>
+  <rect x="423" y="588" width="620" height="5" rx="2.5" fill="#40364F"/>
+  <rect x="423" y="588" width="252" height="5" rx="2.5" fill="url(#accent)"/>
+  <circle cx="675" cy="590.5" r="7" fill="#E9D5FF"/>
+  <circle cx="732" cy="619" r="14" fill="#D946EF" fill-opacity=".9"/>
+  <path d="m728 612 11 7-11 7v-14Z" fill="#fff"/>
+</svg>
