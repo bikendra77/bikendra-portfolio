@@ -69,8 +69,11 @@ export const projects = [
     description:
       'A live weather dashboard for exploring current conditions and forecasts across locations in Nepal, with location search and city browsing.',
     tags: ['Weather', 'Forecasting', 'Nepal'],
+    repo: 'https://github.com/bikendra77/skycast-nepal',
+    repoReachable: true,
     preview: weatherForecastPreview,
     demo: 'https://skycast-nepal.vercel.app/',
+    repoLabel: 'Repository',
   },
 ]
 
