@@ -2,6 +2,7 @@
 // Edit project details here. Every card reads from this file.
 
 import movieBookingPreview from '../../images/Screenshot 2026-10-15 150047.png'
+import weatherForecastPreview from '../../images/weather-forecast.jpg'
 
 export const projects = [
   {
@@ -59,6 +60,17 @@ export const projects = [
     repoReachable: true,
     demo: null,
     status: 'Front-end clone project',
+  },
+  {
+    id: 'skycast-nepal',
+    number: '05',
+    name: 'SkyCast Nepal Weather Forecast',
+    category: 'Weather Application',
+    description:
+      'A live weather dashboard for exploring current conditions and forecasts across locations in Nepal, with location search and city browsing.',
+    tags: ['Weather', 'Forecasting', 'Nepal'],
+    preview: weatherForecastPreview,
+    demo: 'https://skycast-nepal.vercel.app/',
   },
 ]
 

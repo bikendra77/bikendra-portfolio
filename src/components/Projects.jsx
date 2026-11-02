@@ -103,12 +103,12 @@ function ProjectCard({ project, index }) {
               <Github size={15} />
               {repoLabel || 'Repository'}
             </a>
-          ) : (
+          ) : status ? (
             <span className="btn btn-sm is-disabled">
               <Hourglass size={14} />
               {status}
             </span>
-          )}
+          ) : null}
           {demo && (
             <a href={demo} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
               <ExternalLink size={15} />
