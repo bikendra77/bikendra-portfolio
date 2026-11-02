@@ -1,5 +1,5 @@
 import { Compass, MapPin, Target } from 'lucide-react'
-import aboutPhoto from '../../images/about-photo.jpg'
+import aboutPhoto from '../../images/about-photo.jpeg'
 
 const INFO = [
   { icon: MapPin, label: 'Base', value: 'Bharatpur, Chitwan, Nepal' },
